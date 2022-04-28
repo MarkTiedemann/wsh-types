@@ -44,8 +44,9 @@ interface WScript {
 	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/xzysf6hc(v=vs.84) */
 	CreateObject(
 		/** String value indicating the programmatic identifier (ProgID) of the object you want to create. */
-		strProgID: string
-		// strPrefix: string
+		strProgID: string,
+		/** String value indicating the function prefix. */
+		strPrefix?: string
 	): any;
 	/** Creates a WshShell object. */
 	CreateObject(strProgID: "WScript.Shell"): WshShell;
