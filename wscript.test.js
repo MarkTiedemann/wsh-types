@@ -30,9 +30,19 @@ WScript.Echo(WScript.ScriptFullName); // <redacted>\wscript.test.js
 WScript.Echo(typeof WScript.ScriptName); // string
 WScript.Echo(WScript.ScriptName); // wscript.test.js
 
-// TODO(@Mark): Test StdErr
-// TODO(@Mark): Test StdIn
-// TODO(@Mark): Test StdOut
+WScript.StdOut.WriteBlankLines(2);
+
+var stdIn = WScript.StdIn;
+WScript.Echo(stdIn.Column); // 1
+WScript.Echo(stdIn.Line); // 1
+stdIn.Close();
+try {
+	stdIn.AtEndOfStream;
+} catch (_) {
+	WScript.Echo("Stream closed");
+}
+
+WScript.StdErr.WriteBlankLines(2);
 
 WScript.Echo(typeof WScript.Version); // string
 WScript.Echo(WScript.Version); // 5.812

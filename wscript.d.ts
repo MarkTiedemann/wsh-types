@@ -166,5 +166,58 @@ interface WshNetwork {
 /** Facilitates sequential access to file.
  * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/312a5kbt(v=vs.84) */
 interface TextStream {
-	// TODO(@Mark)
+	/** Returns true if the file pointer is positioned immediately before the end-of-line marker in a TextStream file; false if it is not.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/kaf6yaft(v=vs.84) */
+	AtEndOfLine: boolean;
+	/** Returns true if the file pointer is at the end of a TextStream file; false if it is not.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/ffk3x3bw(v=vs.84) */
+	AtEndOfStream: boolean;
+	/** Read-only property that returns the column number of the current character position in a TextStream file.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/3tza1eca(v=vs.84) */
+	Column: number;
+	/** Read-only property that returns the current line number in a TextStream file.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/chsfhd43(v=vs.84) */
+	Line: number;
+	/** Closes an open TextStream file.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/yb3tbdkw(v=vs.84) */
+	Close(): void;
+	/** Reads a specified number of characters from a TextStream file and returns the resulting string.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/dhyx75w2(v=vs.84) */
+	Read(
+		/** Number of characters you want to read from the file. */
+		characters: number
+	): string;
+	/** Reads an entire TextStream file and returns the resulting string.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/t58aa4dd(v=vs.84) */
+	ReadAll(): string;
+	/** Reads an entire line (up to, but not including, the newline character) from a TextStream file and returns the resulting string.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/h7se9d4f(v=vs.84) */
+	ReadLine(): string;
+	/** Skips a specified number of characters when reading a TextStream file.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/08xz3c5a(v=vs.84) */
+	Skip(
+		/** Number of characters to skip when reading a file. */
+		characters: number
+	): void;
+	/** Skips the next line when reading a TextStream file.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/zbhhkawe(v=vs.84) */
+	SkipLine(): void;
+	/** Writes a specified string to a TextStream file.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/6ee7s9w2(v=vs.84) */
+	Write(
+		/** The text you want to write to the file. */
+		string: string
+	): void;
+	/** Writes a specified number of newline characters to a TextStream file.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/eysctzwa(v=vs.84) */
+	WriteBlankLines(
+		/** Number of newline characters you want to write to the file. */
+		lines: number
+	): void;
+	/** Writes a specified string and newline character to a TextStream file.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/t5399c99(v=vs.84) */
+	WriteLine(
+		/** The text you want to write to the file. If omitted, a newline character is written to the file. */
+		string?: string
+	): void;
 }
