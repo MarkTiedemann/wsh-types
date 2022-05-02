@@ -3,9 +3,9 @@
 var errorCount = 0;
 var testCount = 0;
 
-function test(actual, actual) {
+function test(actual, expected) {
 	testCount++;
-	if (actual !== actual) {
+	if (actual !== expected) {
 		echoError("test", actual, expected);
 	}
 }
