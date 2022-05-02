@@ -1,21 +1,25 @@
 /// <reference types="../test_helpers"/>
 
-test(WScript.Arguments.Length, 2);
-test(WScript.Arguments.Count(), 2);
+var Arguments = WScript.Arguments;
+var Named = WScript.Arguments.Named;
+var Unnamed = WScript.Arguments.Unnamed;
 
-test(WScript.Arguments.Named.Length, 1);
-test(WScript.Arguments.Unnamed.Length, 1);
+test(Arguments.Length, 2);
+test(Arguments.Count(), 2);
 
-test(WScript.Arguments.Named.Exists(""), false);
-test(WScript.Arguments.Named(""), undefined);
-test(WScript.Arguments.Named.Item(""), undefined);
+test(Named.Length, 1);
+test(Unnamed.Length, 1);
 
-test(WScript.Arguments.Named.Exists("a"), true);
-test(WScript.Arguments.Named("a"), "b");
-test(WScript.Arguments.Named.Item("a"), "b");
+test(Named.Exists(""), false);
+test(Named(""), undefined);
+test(Named.Item(""), undefined);
 
-test(WScript.Arguments.Unnamed(0), "c");
-test(WScript.Arguments.Unnamed.Item(0), "c");
+test(Named.Exists("a"), true);
+test(Named("a"), "b");
+test(Named.Item("a"), "b");
 
-testThrows(function() { WScript.Arguments.Unnamed(1); }, "TypeError");
-testThrows(function() { WScript.Arguments.Unnamed.Item(1); }, "TypeError");
+test(Unnamed(0), "c");
+test(Unnamed.Item(0), "c");
+
+testThrows(function() { Unnamed(1); }, "TypeError");
+testThrows(function() { Unnamed.Item(1); }, "TypeError");
