@@ -8,5 +8,5 @@ for /f %%f in ('dir /b tests\*.js') do (
 	type test_helpers\post.js >> built_tests\%%f
 )
 for /f %%f in ('dir /b tests\*.cmd') do (
-	tests\%%f
+	call tests\%%f
 )
