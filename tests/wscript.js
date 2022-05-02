@@ -1,8 +1,8 @@
 /// <reference types="../test_helpers"/>
 
 var Arguments = WScript.Arguments;
-var Named = WScript.Arguments.Named;
-var Unnamed = WScript.Arguments.Unnamed;
+var Named = Arguments.Named;
+var Unnamed = Arguments.Unnamed;
 
 test(Arguments.Length, 2);
 test(Arguments.Count(), 2);
