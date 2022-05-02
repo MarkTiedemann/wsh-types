@@ -1,13 +1,4 @@
-/// <reference path="./wscript.d.ts"/>
-
-WScript.Echo(WScript.Arguments.Length); // 2
-
-WScript.Echo(WScript.Arguments.Named.Length); // 1
-WScript.Echo(WScript.Arguments.Named.Exists("a")); // -1
-WScript.Echo(WScript.Arguments.Named.Item("a")); // b
-
-WScript.Echo(WScript.Arguments.Unnamed.Length); // 1
-WScript.Echo(WScript.Arguments.Unnamed.Item(0)); // c
+/// <reference types="../types"/>
 
 WScript.Echo(typeof WScript.BuildVersion); // number
 WScript.Echo(WScript.BuildVersion); // 16384

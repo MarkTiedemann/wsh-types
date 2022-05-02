@@ -1,4 +1,4 @@
-/// <reference path="./wmi.d.ts"/>
+/// <reference types="../types"/>
 
 var locator = new ActiveXObject("WbemScripting.SWbemLocator");
 var service = locator.ConnectServer(".", "root\\cimv2");

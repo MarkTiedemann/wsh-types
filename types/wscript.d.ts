@@ -1,5 +1,3 @@
-/// <reference no-default-lib="true"/>
-
 /** Provides access to root object for the Windows Script Host object model.
  * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/at5ydy31(v=vs.84) */
 interface WScript {
@@ -92,6 +90,11 @@ interface WshArguments {
 	Count(): number;
 	/** Provides access to the items in the WshArguments object. 
 	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/yzefkb42(v=vs.84) */
+	(
+		index: number
+	): string;
+	/** Provides access to the items in the WshArguments object. 
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/yzefkb42(v=vs.84) */
 	Item(
 		/** Index of the item you want to retrieve. */
 		index: number
@@ -104,8 +107,12 @@ interface WshArguments {
 interface WshNamed {
 	/** Returns the number of named arguments. */
 	Length: number;
-	/** Returns the number of named arguments. */
-	Count(): number;
+	/** Provides access to the items in the WshNamed object.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/c2x76sxz(v=vs.84) */
+	(
+		/** The name of the item you want to retrieve. */
+		key: string
+	): string;
 	/** Provides access to the items in the WshNamed object.
 	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/c2x76sxz(v=vs.84) */
 	Item(
@@ -114,7 +121,7 @@ interface WshNamed {
 	): string;
 	/** Indicates whether a specific key value exists in the WshNamed object.
 	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/0axxztye(v=vs.84) */
-	 Exists(
+	Exists(
 		/** String value indicating an argument of the WshNamed object. */
 		key: string
 	): boolean;
@@ -125,8 +132,12 @@ interface WshNamed {
 interface WshUnnamed {
 	/** Returns the number of unnamed arguments. */
 	Length: number;
-	/** Returns the number of unnamed arguments. */
-	Count(): number;
+	/** Provides access to the items in the WshUnnamed object.
+	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/x49bex47(v=vs.84) */
+	(
+		/** Index of the item you want to retrieve. */
+		index: number
+	): string;
 	/** Provides access to the items in the WshUnnamed object.
 	 * @see https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/windows-scripting/x49bex47(v=vs.84) */
 	Item(
